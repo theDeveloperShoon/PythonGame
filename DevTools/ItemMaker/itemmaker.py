@@ -1,6 +1,9 @@
 import json
+from tkinter import *
+from tkinter import ttk
 
 
+# Classes
 class ItemList:
     def __init__(self):
         self.items = []
@@ -16,8 +19,14 @@ class Item:
         self.durability = 100
 
 
+# Side Code
 items = ItemList()
 item1 = Item()
 items.items.append(item1)
 items.items.append(item1)
 print(items.toJson())
+
+root = Tk()
+root.title("ItemMaker")
+root.geometry('600x600')
+root.mainloop()
