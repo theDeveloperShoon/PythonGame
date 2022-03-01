@@ -2,7 +2,7 @@ import sys
 import pygame
 
 
-class Game:
+class GameEngine:
     def __init__(self):
         self.screen_width = 640
         self.screen_height = 640
@@ -11,9 +11,10 @@ class Game:
     def inititalize(self):
         pygame.init()
         pygame.display.set_mode(self.resolution)
+        pygame.display.set_caption("TemporaryGameName")
 
 
-game = Game()
+game = GameEngine()
 game.inititalize()
 
 # Game Loop
