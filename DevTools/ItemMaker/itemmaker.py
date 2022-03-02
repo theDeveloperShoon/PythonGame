@@ -35,11 +35,24 @@ class ItemMaker():
         self.root.title("ItemMaker")
         self.root.geometry('600x600')
 
-        if not jsonDataExists():
+        if jsonDataExists():
             self.itemList = ItemList()
+            print("Json File Exists")
+        else:
+            self.itemList = ItemList()
+            tmpItem = Item()
+            self.itemList.items.append(tmpItem)
 
             # Sends debug message that file exists
             print("Json file doesn't exist")
+
+        itemNameList = []
+        for item in self.itemList.items:
+            itemNameList.append(item.name)
+
+        stringVariable = StringVar(value=itemNameList)
+
+        self.itemsBox = Listbox(self.root, listvariable=stringVariable)
 
 
 # Side Code
@@ -56,4 +69,5 @@ root = Tk()
 ItemMaker(root)
 
 # Runs the TKinter Loop
+root.mainloop()
 root.mainloop()
