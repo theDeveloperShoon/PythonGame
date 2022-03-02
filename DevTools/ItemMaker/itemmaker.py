@@ -37,6 +37,8 @@ class ItemMaker():
 
         if not jsonDataExists():
             self.itemList = ItemList()
+
+            # Sends debug message that file exists
             print("Json file doesn't exist")
 
 
