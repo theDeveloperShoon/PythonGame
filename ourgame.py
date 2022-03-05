@@ -14,14 +14,19 @@ class GameEngine:
         pygame.display.set_caption("TemporaryGameName")
 
 
+class Player:
+    def __init__(self, pathToSprite):
+        self.sprite = pygame.image.load(pathToSprite)
+        self.spriterect = self.sprite.get_rect()
+        self.speed = [0, 0]
+
+
 game = GameEngine()
 game.inititalize()
 
-speed = [1, 2]
 black = 0, 0, 0
 
-box = pygame.image.load("Assets/Sprites/TestBox.png")
-boxrect = box.get_rect(center=(32, 32))
+testPlayer = Player("Assets/Sprites/TestBox.png")
 
 # Game Loop
 while True:
@@ -31,5 +36,8 @@ while True:
             sys.exit()
 
     game.screen.fill(black)  # Fills the background with black
-    game.screen.blit(box, boxrect)  # Adds the box onto screen
+
+    # Adds the box onto screen
+    game.screen.blit(testPlayer.sprite, testPlayer.spriterect)
+
     pygame.display.flip()  # Updates the full display Surface to the screen
