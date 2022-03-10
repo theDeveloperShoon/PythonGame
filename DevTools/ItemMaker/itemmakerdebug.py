@@ -6,7 +6,7 @@ root.title("ItemMaker")
 root.geometry('600x600')
 
 testFrame = Frame(root)
-testFrame.grid(column=0,row=0)
+testFrame.grid(column=0, row=0)
 
 tmpList = ["Test", "Test2", "Test3", "Test4"]
 
