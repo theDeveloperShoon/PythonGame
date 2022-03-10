@@ -41,26 +41,31 @@ class ItemMaker():
         else:
             self.itemList = ItemList()
             tmpItem = Item()
+            tmpItem2 = Item()
+            tmpItem2.name = "TestSword2"
             self.itemList.items.append(tmpItem)
+            self.itemList.items.append(tmpItem2)
 
             # Sends debug message that file exists
             print("Json file doesn't exist")
 
-        itemNameList = []
+        self.tmpList = []
         for item in self.itemList.items:
-            itemNameList.append(item.name)
+            self.tmpList.append(item.name)
 
-        stringVariable = StringVar(value=itemNameList)
+        print(self.tmpList)
 
-        self.itemsBox = Listbox(self.root, listvariable=stringVariable)
+        self.stringVar = StringVar(value=self.tmpList)
+
+        self.itemsBox = Listbox(self.root, listvariable=self.stringVar)
 
 
 # Side Code
-items = ItemList()
-item1 = Item()
-items.items.append(item1)
-items.items.append(item1)
-print(items.toJson())
+# items = ItemList()
+# item1 = Item()
+# items.items.append(item1)
+# items.items.append(item1)
+# print(items.toJson())
 
 # Inititalizes Tkinter
 root = Tk()
@@ -69,5 +74,4 @@ root = Tk()
 ItemMaker(root)
 
 # Runs the TKinter Loop
-root.mainloop()
 root.mainloop()
