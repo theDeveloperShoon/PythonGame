@@ -35,6 +35,9 @@ class ItemMaker():
         self.root.title("ItemMaker")
         self.root.geometry('600x600')
 
+        self.mainframe = Frame(self.root)
+        self.mainframe.grid(column=0, row=0)
+
         if jsonDataExists():
             self.itemList = ItemList()
             print("Json File Exists")
@@ -57,7 +60,8 @@ class ItemMaker():
 
         self.stringVar = StringVar(value=self.tmpList)
 
-        self.itemsBox = Listbox(self.root, listvariable=self.stringVar)
+        self.itemsBox = Listbox(
+            self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
 
 
 # Side Code
