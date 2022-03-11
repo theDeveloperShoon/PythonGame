@@ -23,8 +23,14 @@ class Player:
     def __init__(self, pathToSprite):
         self.sprite = pygame.image.load(pathToSprite)
         self.speed = [0, 0]
+        self.x_velocity = 0
+        self.y_velocity = 0
         self.xLoc = 32
         self.yLoc = 32
+
+    def updateLocation(self):
+        self.xLoc += self.x_velocity
+        self.yLoc += self.y_velocity
 
     def get_coordinate(self):
         return (self.xLoc, self.yLoc)
@@ -45,9 +51,17 @@ while True:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
-                testPlayer.xLoc -= 4
+                testPlayer.x_velocity = -0.25
             if event.key == pygame.K_d:
-                testPlayer.xLoc += 4
+                testPlayer.x_velocity = 0.25
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_a:
+                testPlayer.x_velocity = 0
+            if event.key == pygame.K_d:
+                testPlayer.x_velocity = 0
+
+    testPlayer.updateLocation()
 
     game.screen.fill(black)  # Fills the background with black
 
