@@ -42,6 +42,29 @@ black = 0, 0, 0
 
 testPlayer = Player("Assets/Sprites/TestBox.png")
 
+
+def HorizontalMovementHandler(keys):
+    returnModifier = 0
+
+    if keys[pygame.K_a]:
+        returnModifier -= 1
+    if keys[pygame.K_d]:
+        returnModifier += 1
+
+    return returnModifier
+
+
+def VerticalMovementHandler(keys):
+    returnModifier = 0
+
+    if keys[pygame.K_w]:
+        returnModifier -= 1
+    if keys[pygame.K_s]:
+        returnModifier += 1
+
+    return returnModifier
+
+
 # Game Loop
 while True:
     for event in pygame.event.get():
@@ -49,17 +72,13 @@ while True:
             pygame.quit()
             sys.exit()
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a:
-                testPlayer.x_velocity = -0.25
-            if event.key == pygame.K_d:
-                testPlayer.x_velocity = 0.25
+        keys = pygame.key.get_pressed()
 
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_a:
-                testPlayer.x_velocity = 0
-            if event.key == pygame.K_d:
-                testPlayer.x_velocity = 0
+        horizontalAxis = HorizontalMovementHandler(keys)
+        verticalAxis = VerticalMovementHandler(keys)
+
+        testPlayer.x_velocity = horizontalAxis * 0.15
+        testPlayer.y_velocity = verticalAxis * 0.15
 
     testPlayer.updateLocation()
 
