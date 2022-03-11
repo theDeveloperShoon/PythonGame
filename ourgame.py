@@ -35,14 +35,6 @@ class Player:
     def get_coordinate(self):
         return (self.xLoc, self.yLoc)
 
-
-game = GameEngine()
-
-black = 0, 0, 0
-
-testPlayer = Player("Assets/Sprites/TestBox.png")
-
-
 def HorizontalMovementHandler(keys):
     returnModifier = 0
 
@@ -63,6 +55,13 @@ def VerticalMovementHandler(keys):
         returnModifier += 1
 
     return returnModifier
+
+
+game = GameEngine()
+
+black = 0, 0, 0
+
+testPlayer = Player("Assets/Sprites/TestBox.png")
 
 
 # Game Loop
