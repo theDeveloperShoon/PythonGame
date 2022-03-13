@@ -3,6 +3,7 @@ import pygame
 import pygame.locals
 
 
+# Classes
 class GameEngine:
     def __init__(self):
         pygame.init()
@@ -27,14 +28,22 @@ class Player:
         self.y_velocity = 0
         self.xLoc = 32
         self.yLoc = 32
+        self.x_offset = 0
+        self.y_offset = 0
 
-    def updateLocation(self):
+    def set_offset(self, horizontal_offset, vertical_offset):
+        self.x_offset = horizontal_offset
+        self.y_offset = vertical_offset
+
+    def update_location(self):
         self.xLoc += self.x_velocity
         self.yLoc += self.y_velocity
 
     def get_coordinate(self):
-        return (self.xLoc, self.yLoc)
+        return (self.xLoc + self.x_offset, self.yLoc + self.y_offset)
 
+
+# Functions
 def HorizontalMovementHandler(keys):
     returnModifier = 0
 
@@ -57,6 +66,7 @@ def VerticalMovementHandler(keys):
     return returnModifier
 
 
+# Initializing
 game = GameEngine()
 
 black = 0, 0, 0
@@ -79,7 +89,7 @@ while True:
         testPlayer.x_velocity = horizontalAxis * 0.15
         testPlayer.y_velocity = verticalAxis * 0.15
 
-    testPlayer.updateLocation()
+    testPlayer.update_location()
 
     game.screen.fill(black)  # Fills the background with black
 
