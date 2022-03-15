@@ -14,6 +14,12 @@ class ItemList:
     def __init__(self):
         self.items = []
 
+    def append(self, item):
+        self.items.append(item)
+
+    def getItems(self):
+        return self.items
+
     def toJson(self):
         return json.dumps(self, default=lambda x: x.__dict__, indent=4)
 
@@ -38,6 +44,12 @@ class ItemMaker():
         self.mainframe = Frame(self.root)
         self.mainframe.grid(column=0, row=0)
 
+        self.root.option_add('*tearOff', False)
+        self.menuBar = Menu(self.root)
+        self.root['menu'] = self.menuBar
+        self.menuFile = Menu(self.menuBar)
+        self.menuBar.add_cascade(menu=self.menuFile, label="File")
+
         if jsonDataExists():
             self.itemList = ItemList()
             print("Json File Exists")
@@ -46,14 +58,14 @@ class ItemMaker():
             tmpItem = Item()
             tmpItem2 = Item()
             tmpItem2.name = "TestSword2"
-            self.itemList.items.append(tmpItem)
-            self.itemList.items.append(tmpItem2)
+            self.itemList.append(tmpItem)
+            self.itemList.append(tmpItem2)
 
             # Sends debug message that file exists
             print("Json file doesn't exist")
 
         self.tmpList = []
-        for item in self.itemList.items:
+        for item in self.itemList.getItems():
             self.tmpList.append(item.name)
 
         print(self.tmpList)
@@ -78,4 +90,5 @@ root = Tk()
 ItemMaker(root)
 
 # Runs the TKinter Loop
+root.mainloop()
 root.mainloop()
