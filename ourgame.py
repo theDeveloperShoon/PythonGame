@@ -11,7 +11,8 @@ class GameEngine:
         self.screen_height = 640
         self.resolution = self.screen_width, self.screen_height
         self.screen = pygame.display.set_mode(self.resolution)
-        pygame.display.set_caption("TemporaryGameName")
+        pygame.display.set_caption("Sean's Simple Stat Gain Game")
+        pygame.display.set_icon(pygame.image.load("Assets/SSSGG_icon.png"))
 
 
 class GameObject:
@@ -93,7 +94,7 @@ while True:
 
     game.screen.fill(black)  # Fills the background with black
 
-    # Adds the box onto screen
+    # Adds the player onto screen
     game.screen.blit(testPlayer.sprite, testPlayer.get_coordinate())
 
     pygame.display.flip()  # Updates the full display Surface to the screen
