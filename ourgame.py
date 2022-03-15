@@ -27,8 +27,8 @@ class Player:
         self.speed = [0, 0]
         self.x_velocity = 0
         self.y_velocity = 0
-        self.xLoc = 32
-        self.yLoc = 32
+        self.xLoc = 64
+        self.yLoc = 64
         self.x_offset = 0
         self.y_offset = 0
 
