@@ -27,8 +27,8 @@ class ItemList:
 # Defining Item Class
 class Item:
     def __init__(self):
-        self.name = "TestSword"
-        self.description = "A test sword"
+        self.name = "NewItem"
+        self.description = "A new item"
         self.durability = 100
 
 
