@@ -75,16 +75,13 @@ class ItemMaker():
             self.itemList.append(tmpItem)
             self.itemList.append(tmpItem2)
 
-            # Sends debug message that file exists
-            print("Json file doesn't exist")
-
-        self.tmpList = []
+        tmpList = []
         for item in self.itemList.getItems():
-            self.tmpList.append(item.name)
+            tmpList.append(item.name)
 
-        print(self.tmpList)
+        print(tmpList)
 
-        self.stringVar = StringVar(value=self.tmpList)
+        self.stringVar = StringVar(value=tmpList)
 
         self.itemsBox = Listbox(
             self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
@@ -95,13 +92,13 @@ class ItemMaker():
         self.updateListbox()
 
     def updateListbox(self):
-        self.tmpList = []
+        tmpList = []
         for item in self.itemList.getItems():
-            self.tmpList.append(item.name)
+            tmpList.append(item.name)
 
-        print(self.tmpList)
+        print(tmpList)
 
-        self.stringVar.set(self.tmpList)
+        self.stringVar.set(tmpList)
         self.itemsBox = self.stringVar
 
 # Side Code
