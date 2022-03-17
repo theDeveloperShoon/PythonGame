@@ -49,6 +49,7 @@ class ItemMaker():
         self.root['menu'] = self.menuBar
         self.menuFile = Menu(self.menuBar)
         self.menuBar.add_cascade(menu=self.menuFile, label="File")
+        self.menuFile.add_command(label='New Item', command=self.newItem)
 
         if jsonDataExists():
             self.itemList = ItemList()
@@ -76,6 +77,20 @@ class ItemMaker():
         self.itemsBox = Listbox(
             self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
 
+    def newItem(self):
+        newitem = Item()
+        self.itemList.append(newitem)
+        self.updateListbox()
+
+    def updateListbox(self):
+        self.tmpList = []
+        for item in self.itemList.getItems():
+            self.tmpList.append(item.name)
+
+        print(self.tmpList)
+
+        self.stringVar.set(self.tmpList)
+        self.itemsBox = self.stringVar
 
 # Side Code
 # items = ItemList()
