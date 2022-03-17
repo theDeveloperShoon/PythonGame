@@ -101,13 +101,15 @@ class ItemMaker():
         self.stringVar.set(tmpList)
         self.itemsBox = self.stringVar
 
-# Side Code
-# items = ItemList()
-# item1 = Item()
-# items.items.append(item1)
-# items.items.append(item1)
-# print(items.toJson())
 
+# Test to see if .toJson function of itemList works
+"""
+items = ItemList()
+item1 = Item()
+items.items.append(item1)
+items.items.append(item1)
+print(items.toJson())
+"""
 
 # Inititalizes Tkinter
 root = Tk()
