@@ -91,4 +91,3 @@ ItemMaker(root)
 
 # Runs the TKinter Loop
 root.mainloop()
-root.mainloop()
