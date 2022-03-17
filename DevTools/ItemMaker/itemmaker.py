@@ -69,11 +69,7 @@ class ItemMaker():
         else:
             self.itemList = ItemList()
             tmpItem = Item()
-            tmpItem2 = Item()
-            tmpItem.name = "TestSword"
-            tmpItem2.name = "TestSword2"
             self.itemList.append(tmpItem)
-            self.itemList.append(tmpItem2)
 
         tmpList = []
         for item in self.itemList.getItems():
