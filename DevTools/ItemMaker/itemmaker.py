@@ -90,14 +90,11 @@ class ItemMaker():
 
         self.stringVar = StringVar(value=self.nameList)
 
-        # self.itemsBox = Listbox(
-        #    self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
-
-        itemsBox = Listbox(
-            self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
         self.itemBox = Listbox(
             self.mainframe, listvariable=self.stringVar)
         self.itemBox.grid(column=1, row=1)
+
+        # self.itemBox.bind('<Double-1>', itemBoxSelection())
 
     def newItem(self):
         newitem = Item()
@@ -123,8 +120,6 @@ class ItemMaker():
             self.itemList.removeItem(index)
         self.updateListbox()
 
-        # def removeItem(self, index):
-        # self.itemList.
 
 # Test to see if .toJson function of itemList works
 """
