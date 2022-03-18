@@ -118,7 +118,7 @@ class ItemMaker():
         # def removeItem(self, index):
         # self.itemList.
 
-        # Test to see if .toJson function of itemList works
+# Test to see if .toJson function of itemList works
 """
 items = ItemList()
 item1 = Item()
