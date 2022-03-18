@@ -24,6 +24,9 @@ class ItemList:
     def getItems(self):
         return self.items
 
+    def removeItem(self, index):
+        self.items.pop(index)
+
     # Converts the item list to json
     def toJson(self):
         return json.dumps(self, default=lambda x: x.__dict__, indent=4)
