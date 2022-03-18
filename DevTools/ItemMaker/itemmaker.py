@@ -95,6 +95,9 @@ class ItemMaker():
 
         itemsBox = Listbox(
             self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
+        self.itemBox = Listbox(
+            self.mainframe, listvariable=self.stringVar)
+        self.itemBox.grid(column=1, row=1)
 
     def newItem(self):
         newitem = Item()
