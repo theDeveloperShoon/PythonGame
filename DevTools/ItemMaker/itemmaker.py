@@ -3,8 +3,9 @@ import os
 from tkinter import *
 from tkinter import ttk
 
-
 # Checks if the json data exists
+
+
 def jsonDataExists():
     return os.path.isfile("Data/itemlist.json")
 
@@ -61,6 +62,8 @@ class ItemMaker():
         self.menuFile = Menu(self.menuBar)
         self.menuBar.add_cascade(menu=self.menuFile, label="File")
         self.menuFile.add_command(label='New Item', command=self.newItem)
+        self.menuFile.add_command(
+            label='Print Index', command=self.debugItemIndex)
 
         # Checks if the Json File Exists (Will be removed)
         if jsonDataExists():
@@ -71,15 +74,18 @@ class ItemMaker():
             tmpItem = Item()
             self.itemList.append(tmpItem)
 
-        tmpList = []
+        self.nameList = []
         for item in self.itemList.getItems():
-            tmpList.append(item.name)
+            self.nameList.append(item.name)
 
-        print(tmpList)
+        print(self.nameList)
 
-        self.stringVar = StringVar(value=tmpList)
+        self.stringVar = StringVar(value=self.nameList)
 
-        self.itemsBox = Listbox(
+        # self.itemsBox = Listbox(
+        #    self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
+
+        itemsBox = Listbox(
             self.mainframe, listvariable=self.stringVar).grid(column=1, row=1)
 
     def newItem(self):
@@ -88,17 +94,23 @@ class ItemMaker():
         self.updateListbox()
 
     def updateListbox(self):
-        tmpList = []
+        self.nameList = []
         for item in self.itemList.getItems():
-            tmpList.append(item.name)
+            self.nameList.append(item.name)
 
-        print(tmpList)
+        print(self.nameList)
 
-        self.stringVar.set(tmpList)
-        self.itemsBox = self.stringVar
+        self.stringVar.set(self.nameList)
+        # self.itemsBox = self.stringVar
 
+    def debugItemIndex(self):
+        print(itemsBox.curselection())
+        # print(self.itemsBox.curselection())
 
-# Test to see if .toJson function of itemList works
+        # def removeItem(self, index):
+        # self.itemList.
+
+        # Test to see if .toJson function of itemList works
 """
 items = ItemList()
 item1 = Item()
@@ -109,6 +121,8 @@ print(items.toJson())
 
 # Inititalizes Tkinter
 root = Tk()
+
+itemsBox = Listbox(root)
 
 # Initialize ItemMaker
 ItemMaker(root)
