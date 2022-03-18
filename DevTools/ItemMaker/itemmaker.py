@@ -71,7 +71,7 @@ class ItemMaker():
         self.menuFile.add_command(label='Remove Item', command=self.removeItem)
 
         self.menuDebug.add_command(
-            label='Print Index', command=self.debugItemIndex)
+            label='Print Index', command=self.debugSelectedIndex)
 
         # Checks if the Json File Exists (Will be removed)
         if jsonDataExists():
@@ -114,9 +114,14 @@ class ItemMaker():
         self.stringVar.set(self.nameList)
         # self.itemsBox = self.stringVar
 
-    def debugItemIndex(self):
-        print(itemsBox.curselection())
-        # print(self.itemsBox.curselection())
+    def debugSelectedIndex(self):
+        print(self.itemBox.curselection())
+
+    def removeItem(self):
+        for item in self.itemBox.curselection():
+            index = item
+            self.itemList.removeItem(index)
+        self.updateListbox()
 
         # def removeItem(self, index):
         # self.itemList.
