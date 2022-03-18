@@ -63,9 +63,14 @@ class ItemMaker():
         self.menuBar = Menu(self.root)
         self.root['menu'] = self.menuBar
         self.menuFile = Menu(self.menuBar)
+        self.menuDebug = Menu(self.menuBar)
         self.menuBar.add_cascade(menu=self.menuFile, label="File")
+        self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
+
         self.menuFile.add_command(label='New Item', command=self.newItem)
-        self.menuFile.add_command(
+        self.menuFile.add_command(label='Remove Item', command=self.removeItem)
+
+        self.menuDebug.add_command(
             label='Print Index', command=self.debugItemIndex)
 
         # Checks if the Json File Exists (Will be removed)
