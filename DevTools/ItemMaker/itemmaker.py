@@ -130,8 +130,6 @@ print(items.toJson())
 # Inititalizes Tkinter
 root = Tk()
 
-itemsBox = Listbox(root)
-
 # Initialize ItemMaker
 ItemMaker(root)
 
