@@ -57,6 +57,7 @@ class ItemMaker():
         # Creates a frame
         self.mainframe = Frame(self.root)
         self.mainframe.grid(column=0, row=0)
+        self.root.configure(background='red')
 
         # Works on the menu bar
         self.root.option_add('*tearOff', False)
