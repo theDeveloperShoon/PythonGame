@@ -71,8 +71,9 @@ class ItemMaker():
         self.menuBar.add_cascade(menu=self.menuEdit, label='Edit')
         self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
 
-        self.menuFile.add_command(label='New Item', command=self.newItem)
-        self.menuFile.add_command(label='Remove Item', command=self.removeItem)
+        self.menuEdit.add_command(label='New Item', command=self.newItem)
+        self.menuEdit.add_command(
+            label='Remove Item', command=self.removeItem)
 
         self.menuDebug.add_command(
             label='Print Index', command=self.debugSelectedIndex)
