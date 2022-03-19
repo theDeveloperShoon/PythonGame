@@ -91,8 +91,8 @@ class ItemMaker():
         self.stringVar = StringVar(value=self.nameList)
 
         self.itemBox = Listbox(
-            self.mainframe, listvariable=self.stringVar)
-        self.itemBox.grid(column=1, row=1)
+            self.root, listvariable=self.stringVar)
+        self.itemBox.grid(column=0, row=0, sticky=(N, S, W))
 
         # self.itemBox.bind('<Double-1>', itemBoxSelection())
 
