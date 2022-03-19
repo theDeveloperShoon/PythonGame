@@ -94,6 +94,12 @@ class ItemMaker():
             self.root, listvariable=self.stringVar)
         self.itemBox.grid(column=0, row=0, sticky=(N, S, W))
 
+        self.listBoxScrollbar = Scrollbar(
+            self.root, orient=VERTICAL, command=self.itemBox.yview)
+        self.listBoxScrollbar.grid(column=1, row=0, sticky=(N, S))
+
+        self.itemBox.configure(yscrollcommand=self.listBoxScrollbar.set)
+
         # self.itemBox.bind('<Double-1>', itemBoxSelection())
 
     def newItem(self):
