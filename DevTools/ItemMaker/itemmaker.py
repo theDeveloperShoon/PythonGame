@@ -59,6 +59,8 @@ class ItemMaker():
         self.mainframe.grid(column=0, row=0)
         self.root.configure(background='red')
 
+        self.root.rowconfigure(0, weight=3)
+
         # Works on the menu bar
         self.root.option_add('*tearOff', False)
         self.menuBar = Menu(self.root)
