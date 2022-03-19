@@ -5,12 +5,6 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 
-# Checks if the json data exists
-
-
-def jsonDataExists():
-    return os.path.isfile("Data/itemlist.json")
-
 
 # Defining ItemList class
 class ItemList:
@@ -80,14 +74,6 @@ class ItemMaker():
         self.menuDebug.add_command(
             label='Print Index', command=self.debugSelectedIndex)
 
-        # Checks if the Json File Exists (Will be removed)
-        if jsonDataExists():
-            self.itemList = ItemList()
-            print("Json File Exists")
-        else:
-            self.itemList = ItemList()
-            tmpItem = Item()
-            self.itemList.append(tmpItem)
 
         self.nameList = []
         for item in self.itemList.getItems():
