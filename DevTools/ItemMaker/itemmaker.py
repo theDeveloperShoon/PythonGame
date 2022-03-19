@@ -71,6 +71,8 @@ class ItemMaker():
         self.menuBar.add_cascade(menu=self.menuEdit, label='Edit')
         self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
 
+        self.menuFile.add_command(label='Save', command=self.saveFile)
+
         self.menuEdit.add_command(label='New Item', command=self.newItem)
         self.menuEdit.add_command(
             label='Remove Item', command=self.removeItem)
@@ -130,6 +132,12 @@ class ItemMaker():
             index = item
             self.itemList.removeItem(index)
         self.updateListbox()
+
+    def saveFile(self):
+        savedirectory = filedialog.asksaveasfilename(
+            filetypes=[('Json', ".json")])
+        fileSaving = open(savedirectory+".json", mode='w+')
+        fileSaving.write(self.itemList.toJson())
 
 
 # Test to see if .toJson function of itemList works
