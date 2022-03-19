@@ -74,6 +74,9 @@ class ItemMaker():
         self.menuDebug.add_command(
             label='Print Index', command=self.debugSelectedIndex)
 
+        self.itemList = ItemList()
+        tmpItem = Item()
+        self.itemList.append(tmpItem)
 
         self.nameList = []
         for item in self.itemList.getItems():
