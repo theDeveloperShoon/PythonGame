@@ -1,7 +1,9 @@
 import json
 import os
+import io
 from tkinter import *
 from tkinter import ttk
+from tkinter import filedialog
 
 # Checks if the json data exists
 
