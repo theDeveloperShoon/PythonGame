@@ -54,9 +54,6 @@ class ItemMaker():
         self.root.title("ItemMaker")
         self.root.geometry('600x600')
 
-        # Creates a frame
-        self.mainframe = Frame(self.root)
-        self.mainframe.grid(column=0, row=0)
         self.root.configure(background='red')
 
         self.root.rowconfigure(0, weight=3)
