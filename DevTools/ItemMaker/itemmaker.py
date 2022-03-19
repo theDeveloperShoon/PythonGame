@@ -96,6 +96,8 @@ class ItemMaker():
 
         self.itemBox.configure(yscrollcommand=self.listBoxScrollbar.set)
 
+        # self.frame = Frame(self.root)
+
         # self.itemBox.bind('<Double-1>', itemBoxSelection())
 
     def newItem(self):
