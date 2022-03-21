@@ -65,6 +65,7 @@ class ItemMaker():
         self.menuBar.add_cascade(menu=self.menuEdit, label='Edit')
         self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
 
+        self.menuFile.add_command(label='Open', command=self.openFile)
         self.menuFile.add_command(label='Save', command=self.saveFile)
 
         self.menuEdit.add_command(label='New Item', command=self.newItem)
@@ -129,6 +130,25 @@ class ItemMaker():
             filetypes=[('Json', ".json")])
         fileSaving = open(savedirectory+".json", mode='w+')
         fileSaving.write(self.itemList.toJson())
+
+    def openFile(self):
+        opendirectory = filedialog.askopenfilename(
+            filetypes=[('Json', '.json')])
+        fileOpened = open(opendirectory, mode="r")
+
+        jsonloaded = json.load(fileOpened)
+
+        tmpItemList = ItemList()
+        returnItemList = ItemList()
+
+        tmpItemList.__dict__ = jsonloaded
+        for item in tmpItemList.items:
+            tmpItem = Item()
+            tmpItem.__dict__ = item
+            returnItemList.append(tmpItem)
+
+        self.itemList = returnItemList
+        self.updateListbox()
 
 
 # Test to see if .toJson function of itemList works
