@@ -156,10 +156,7 @@ class ItemMaker():
 
         self.stringVar.set(self.nameList)
         # self.itemsBox = self.stringVar
-
-    def debugSelectedIndex(self):
-        print(self.itemBox.curselection())
-
+        
     def removeItem(self):
         for item in self.itemBox.curselection():
             index = item
