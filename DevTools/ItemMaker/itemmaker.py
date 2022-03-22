@@ -96,9 +96,27 @@ class ItemMaker():
 
         self.itemBox.configure(yscrollcommand=self.listBoxScrollbar.set)
 
-        # self.frame = Frame(self.root)
+        self.frame = Frame(self.root)
+        self.frame.grid(column=2, row=0, sticky=(N, S, E, W))
+        self.frame.rowconfigure(0, weight=3)
+        self.frame.columnconfigure(0, weight=3)
+        self.frame.columnconfigure(1, weight=3)
 
+        self.nameLabel = Label(self.frame, text="Name")
+        self.nameLabel.grid(column=0, row=0)
+
+        self.nameEntryVariable = StringVar()
+        self.nameEntry = Entry(self.frame, textvariable=self.nameEntryVariable)
+        self.nameEntry.grid(column=1, row=0)
+
+        self.saveButton = Button(
+            self.frame, text='Save', command=self.saveItem)
+
+        self.saveButton.grid(column=0, row=1, columnspan=2)
         # self.itemBox.bind('<Double-1>', itemBoxSelection())
+
+    def saveItem(self):
+        print(self.nameEntryVariable.get())
 
     def newItem(self):
         newitem = Item()
@@ -148,6 +166,7 @@ class ItemMaker():
 
         self.itemList = returnItemList
         self.updateListbox()
+
 
 # Inititalizes Tkinter
 root = Tk()
