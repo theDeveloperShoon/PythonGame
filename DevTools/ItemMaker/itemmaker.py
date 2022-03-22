@@ -125,6 +125,14 @@ class ItemMaker():
 
         self.saveButton.grid(column=0, row=2, columnspan=2)
 
+        self.itemBox.bind('<Double-1>', self.openItem)
+
+        self.currentItem = 0
+
+    def openItem(self, event):
+        self.currentItem = self.itemBox.curselection()[0]
+        # print(self.currentItem)
+
     def saveItem(self):
         print(self.nameEntryVariable.get())
         itemID = self.currentItem
