@@ -52,6 +52,7 @@ class ItemMaker():
         self.root.configure(background='red')
 
         self.root.rowconfigure(0, weight=3)
+        self.root.columnconfigure(2, weight=3)
 
         # Works on the menu bar
         self.root.option_add('*tearOff', False)
@@ -98,7 +99,9 @@ class ItemMaker():
 
         self.frame = Frame(self.root)
         self.frame.grid(column=2, row=0, sticky=(N, S, E, W))
-        self.frame.rowconfigure(0, weight=3)
+        self.frame.rowconfigure(0, weight=1)
+        self.frame.rowconfigure(1, weight=1)
+        self.frame.rowconfigure(2, weight=1)
         self.frame.columnconfigure(0, weight=3)
         self.frame.columnconfigure(1, weight=3)
 
