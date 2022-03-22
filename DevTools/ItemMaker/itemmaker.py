@@ -112,6 +112,14 @@ class ItemMaker():
         self.nameEntry = Entry(self.frame, textvariable=self.nameEntryVariable)
         self.nameEntry.grid(column=1, row=0)
 
+        self.descriptionLabel = Label(self.frame, text='Description')
+        self.descriptionLabel.grid(column=0, row=1)
+
+        self.descriptionEntryVariable = StringVar()
+        self.descriptionEntry = Entry(
+            self.frame, textvariable=self.descriptionEntryVariable)
+        self.descriptionEntry.grid(column=1, row=1)
+
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
 
