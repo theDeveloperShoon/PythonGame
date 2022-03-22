@@ -123,11 +123,16 @@ class ItemMaker():
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
 
-        self.saveButton.grid(column=0, row=1, columnspan=2)
-        # self.itemBox.bind('<Double-1>', itemBoxSelection())
+        self.saveButton.grid(column=0, row=2, columnspan=2)
 
     def saveItem(self):
         print(self.nameEntryVariable.get())
+        itemID = self.currentItem
+        self.itemList.items[itemID]
+        self.itemList.items[itemID].name = self.nameEntryVariable.get()
+        self.itemList.items[itemID].description = self.descriptionEntry.get()
+
+        self.updateListbox()
 
     def newItem(self):
         newitem = Item()
