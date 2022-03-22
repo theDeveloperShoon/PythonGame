@@ -134,7 +134,6 @@ class ItemMaker():
         # print(self.currentItem)
 
     def saveItem(self):
-        print(self.nameEntryVariable.get())
         itemID = self.currentItem
         self.itemList.items[itemID]
         self.itemList.items[itemID].name = self.nameEntryVariable.get()
