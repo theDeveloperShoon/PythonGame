@@ -70,6 +70,7 @@ class ItemMaker():
         self.frame.columnconfigure(0, weight=3)
         self.frame.columnconfigure(1, weight=3)
 
+        # Name Entry
         self.nameLabel = Label(self.frame, text="Name")
         self.nameLabel.grid(column=0, row=0)
 
@@ -77,6 +78,7 @@ class ItemMaker():
         self.nameEntry = Entry(self.frame, textvariable=self.nameEntryVariable)
         self.nameEntry.grid(column=1, row=0)
 
+        # Description Entry
         self.descriptionLabel = Label(self.frame, text='Description')
         self.descriptionLabel.grid(column=0, row=1)
 
@@ -85,6 +87,8 @@ class ItemMaker():
             self.frame, textvariable=self.descriptionEntryVariable)
         self.descriptionEntry.grid(column=1, row=1)
 
+        # Durability Entry
+        # Save Button
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
 
