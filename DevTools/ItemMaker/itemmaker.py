@@ -42,9 +42,6 @@ class ItemMaker():
         self.menuEdit.add_command(
             label='Remove Item', command=self.removeItem)
 
-        self.menuDebug.add_command(
-            label='Print Index', command=self.debugSelectedIndex)
-
         self.itemList = ItemList()
         tmpItem = Item()
         self.itemList.append(tmpItem)
@@ -52,8 +49,6 @@ class ItemMaker():
         self.nameList = []
         for item in self.itemList.getItems():
             self.nameList.append(item.name)
-
-        print(self.nameList)
 
         self.stringVar = StringVar(value=self.nameList)
 
@@ -125,7 +120,7 @@ class ItemMaker():
 
         self.stringVar.set(self.nameList)
         # self.itemsBox = self.stringVar
-        
+
     def removeItem(self):
         for item in self.itemBox.curselection():
             index = item
