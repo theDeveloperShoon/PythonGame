@@ -6,3 +6,6 @@ class Item:
         self.name = "NewItem"
         self.description = "A new item"
         self.durability = 100
+        self.pathToSprite = ""
+        self.damage = 0
+        self.defense = 0
