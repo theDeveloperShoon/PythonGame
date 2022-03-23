@@ -100,7 +100,7 @@ class ItemMaker():
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
 
-        self.saveButton.grid(column=0, row=2, columnspan=2)
+        self.saveButton.grid(column=0, row=3, columnspan=2)
 
         self.itemBox.bind('<Double-1>', self.openItem)
 
