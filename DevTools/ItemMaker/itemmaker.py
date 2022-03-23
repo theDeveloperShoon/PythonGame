@@ -88,6 +88,14 @@ class ItemMaker():
         self.descriptionEntry.grid(column=1, row=1)
 
         # Durability Entry
+        self.durabilityLabel = Label(self.frame, text='Durability')
+        self.durabilityLabel.grid(column=0, row=2)
+
+        self.durabilityEntryVariable = StringVar()
+        self.durabilityEntry = Entry(
+            self.frame, textvariable=self.durabilityEntryVariable)
+        self.durabilityEntry.grid(column=1, row=2)
+
         # Save Button
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
