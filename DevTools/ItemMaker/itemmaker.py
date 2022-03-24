@@ -103,6 +103,7 @@ class ItemMaker():
 
         # Binds the itemBox to open the item
         self.itemBox.bind('<Double-1>', self.openItem)
+        self.itemBox.bind('<KeyRelease-Delete>', self.removeItem)
 
         # Sets Current Item open to 0
         self.currentItem = 0
@@ -141,7 +142,7 @@ class ItemMaker():
         self.stringVar.set(self.nameList)
 
     # Removes the currently selected item from the list
-    def removeItem(self):
+    def removeItem(self, event):
         for item in self.itemBox.curselection():
             index = item
             self.itemList.removeItem(index)
