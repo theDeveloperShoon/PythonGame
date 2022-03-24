@@ -107,10 +107,15 @@ class ItemMaker():
         # Sets Current Item open to 0
         self.currentItem = 0
 
+    # Changes the currentItem to the selected item
     def openItem(self, event):
         self.currentItem = self.itemBox.curselection()[0]
-        # print(self.currentItem)
 
+        """
+        Make it where the properties are the item's properties
+        """
+
+    # Saves the entered properties into the item
     def saveItem(self):
         itemID = self.currentItem
         self.itemList.items[itemID]
@@ -119,11 +124,13 @@ class ItemMaker():
 
         self.updateListbox()
 
+    # Creates a new item into the itemList
     def newItem(self):
         newitem = Item()
         self.itemList.append(newitem)
         self.updateListbox()
 
+    # Updates the names of items in the list
     def updateListbox(self):
         self.nameList = []
         for item in self.itemList.getItems():
@@ -132,20 +139,22 @@ class ItemMaker():
         print(self.nameList)
 
         self.stringVar.set(self.nameList)
-        # self.itemsBox = self.stringVar
 
+    # Removes the currently selected item from the list
     def removeItem(self):
         for item in self.itemBox.curselection():
             index = item
             self.itemList.removeItem(index)
         self.updateListbox()
 
+    # Saves the json file into wherever you ask for it to be stored
     def saveFile(self):
         savedirectory = filedialog.asksaveasfilename(
             filetypes=[('Json', ".json")])
         fileSaving = open(savedirectory+".json", mode='w+')
         fileSaving.write(self.itemList.toJson())
 
+    # Opens the json file specified
     def openFile(self):
         opendirectory = filedialog.askopenfilename(
             filetypes=[('Json', '.json')])
