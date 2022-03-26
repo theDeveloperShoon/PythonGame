@@ -118,7 +118,6 @@ class ItemMaker():
         # Save Button
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
-        self.saveButton.grid(column=0, row=3, columnspan=2)
         self.saveButton.grid(column=0, row=5, columnspan=2)
 
         # Binds the itemBox to open the item
