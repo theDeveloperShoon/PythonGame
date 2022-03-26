@@ -3,6 +3,7 @@ import os
 import io
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox
 from classes.item import Item
 from classes.itemlist import ItemList
 
@@ -137,6 +138,41 @@ class ItemMaker():
     # Saves the entered properties into the item
     def saveItem(self):
         itemID = self.currentItem
+
+        # Tries converting durability to a number
+        try:
+            durabilityEntered = self.durabilityEntryVariable.get()
+            if(durabilityEntered.strip() == ""):
+                durability = 0
+            else:
+                durability = float(durabilityEntered)
+        except ValueError:
+            messagebox.showinfo(
+                message='Durability was unable to be converted to a number')
+
+        # Tries to convert damage to a number
+        try:
+            damageEntered = self.damageEntryVariable.get()
+
+            if(damageEntered.strip() == ""):
+                damage = 0
+            else:
+                damage = float(damageEntered)
+        except ValueError:
+            messagebox.showinfo(
+                message='Damage was unable to be convered to a number')
+
+        try:
+            defenseEntered = self.defenseEntryVariable.get()
+
+            if(defenseEntered.strip() == ""):
+                defense = 0
+            else:
+                defense = float(defenseEntered)
+        except ValueError:
+            messagebox.showinfo(
+                message='Defense was unable to be converted to a number')
+
         self.itemList.items[itemID]
         self.itemList.items[itemID].name = self.nameEntryVariable.get()
         self.itemList.items[itemID].description = self.descriptionEntry.get()
