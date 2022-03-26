@@ -176,6 +176,9 @@ class ItemMaker():
         self.itemList.items[itemID]
         self.itemList.items[itemID].name = self.nameEntryVariable.get()
         self.itemList.items[itemID].description = self.descriptionEntry.get()
+        self.itemList.items[itemID].durability = durability
+        self.itemList.items[itemID].damage = damage
+        self.itemList.items[itemID].defense = defense
 
         self.updateListbox()
 
