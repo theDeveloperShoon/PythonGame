@@ -96,10 +96,29 @@ class ItemMaker():
             self.frame, textvariable=self.durabilityEntryVariable)
         self.durabilityEntry.grid(column=1, row=2)
 
+        # Damage Entry
+        self.damageLabel = Label(self.frame, text='Damage')
+        self.damageLabel.grid(column=0, row=3)
+
+        self.damageEntryVariable = StringVar()
+        self.damageEntry = Entry(
+            self.frame, textvariable=self.damageEntryVariable)
+        self.damageEntry.grid(column=1, row=3)
+
+        # Defense Entry
+        self.defenseLabel = Label(self.frame, text='Defense')
+        self.defenseLabel.grid(column=0, row=4)
+
+        self.defenseEntryVariable = StringVar()
+        self.defenseEntry = Entry(
+            self.frame, textvariable=self.defenseEntryVariable)
+        self.defenseEntry.grid(column=1, row=4)
+
         # Save Button
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
         self.saveButton.grid(column=0, row=3, columnspan=2)
+        self.saveButton.grid(column=0, row=5, columnspan=2)
 
         # Binds the itemBox to open the item
         self.itemBox.bind('<Double-1>', self.openItem)
