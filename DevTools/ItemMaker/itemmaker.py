@@ -144,6 +144,12 @@ class ItemMaker():
     def saveItem(self):
         itemID = self.currentItem
 
+        name = self.nameEntryVariable.get()
+
+        # Turns a blank name into "NewItem"
+        if (name.strip() == ""):
+            name = "NewItem"
+
         # Tries converting durability to a number
         try:
             durabilityEntered = self.durabilityEntryVariable.get()
@@ -151,6 +157,8 @@ class ItemMaker():
                 durability = 0
             else:
                 durability = float(durabilityEntered)
+
+            self.itemList.items[itemID].durability = durability
         except ValueError:
             messagebox.showinfo(
                 message='Durability was unable to be converted to a number')
@@ -163,10 +171,13 @@ class ItemMaker():
                 damage = 0
             else:
                 damage = float(damageEntered)
+
+            self.itemList.items[itemID].damage = damage
         except ValueError:
             messagebox.showinfo(
                 message='Damage was unable to be convered to a number')
 
+        # Tries to convert defense to a number
         try:
             defenseEntered = self.defenseEntryVariable.get()
 
@@ -174,16 +185,15 @@ class ItemMaker():
                 defense = 0
             else:
                 defense = float(defenseEntered)
+
+            self.itemList.items[itemID].defense = defense
         except ValueError:
             messagebox.showinfo(
                 message='Defense was unable to be converted to a number')
 
         self.itemList.items[itemID]
-        self.itemList.items[itemID].name = self.nameEntryVariable.get()
+        self.itemList.items[itemID].name = name
         self.itemList.items[itemID].description = self.descriptionEntry.get()
-        self.itemList.items[itemID].durability = durability
-        self.itemList.items[itemID].damage = damage
-        self.itemList.items[itemID].defense = defense
 
         self.updateListbox()
 
