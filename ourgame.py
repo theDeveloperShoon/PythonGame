@@ -27,9 +27,6 @@ class Player(Entity):
         super().__init__(*args)
         self.health = 64
 
-    # Functions
-
-
 def HorizontalMovementHandler(keys):
     returnModifier = 0
 
