@@ -96,5 +96,6 @@ while True:
             'FPS - ' + str(math.floor(clock.get_fps())), True, (255, 255, 255))
         game.screen.blit(fpsText, (0, 100))
 
+    clock.tick(144)
 
     pygame.display.flip()  # Updates the full display Surface to the screen
