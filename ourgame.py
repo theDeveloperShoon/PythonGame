@@ -60,8 +60,12 @@ black = 0, 0, 0
 testPlayer = Player("Assets/Sprites/TestBox.png")
 
 showStats = False
+
+clock = pygame.time.Clock()
+
 # Game Loop
 while True:
+    # pygame.time.Clock().tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -87,5 +91,9 @@ while True:
         font = pygame.font.Font(None, 28)
         text = font.render(str(testPlayer.health), True, (255, 255, 255))
         game.screen.blit(text, text.get_rect())
+        fpsText = font.render(
+            'FPS - ' + str(math.floor(clock.get_fps())), True, (255, 255, 255))
+        game.screen.blit(fpsText, (0, 100))
+
 
     pygame.display.flip()  # Updates the full display Surface to the screen
