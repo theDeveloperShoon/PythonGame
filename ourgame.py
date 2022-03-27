@@ -16,16 +16,11 @@ class GameEngine:
         pygame.display.set_icon(pygame.image.load("Assets/SSSGG_icon.png"))
 
 
-class GameObject:
-    def __init__(self, sprite, speed):
-        self.speed = speed
-        self.sprite = sprite
-
-
 class Player(Entity):
     def __init__(self, *args):
         super().__init__(*args)
         self.health = 64
+
 
 def HorizontalMovementHandler(keys):
     returnModifier = 0
