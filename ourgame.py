@@ -1,4 +1,5 @@
 import sys
+import math
 import pygame
 import pygame.locals
 from Game.Entity import Entity
