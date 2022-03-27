@@ -75,7 +75,7 @@ while True:
 
         horizontalAxis = HorizontalMovementHandler(keys)
         verticalAxis = VerticalMovementHandler(keys)
-        showStats = isStatsShowTrue(keys)
+        showStats = isShowingStats(keys)
 
         testPlayer.x_velocity = horizontalAxis * 4
         testPlayer.y_velocity = verticalAxis * 4
