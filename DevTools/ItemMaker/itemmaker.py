@@ -34,7 +34,7 @@ class ItemMaker():
         self.menuDebug = Menu(self.menuBar)
         self.menuBar.add_cascade(menu=self.menuFile, label="File")
         self.menuBar.add_cascade(menu=self.menuEdit, label='Edit')
-        self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
+        # self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
 
         self.menuFile.add_command(label='Open', command=self.openFile)
         self.menuFile.add_command(label='Save', command=self.saveFile)
@@ -193,7 +193,7 @@ class ItemMaker():
         for item in self.itemList.getItems():
             self.nameList.append(item.name)
 
-        print(self.nameList)
+        # print(self.nameList)
 
         self.stringVar.set(self.nameList)
 
