@@ -129,7 +129,13 @@ class ItemMaker():
     # Changes the currentItem to the selected item
     def openItem(self, event):
         self.currentItem = self.itemBox.curselection()[0]
+        item = self.itemList.items[self.currentItem]
 
+        self.nameEntryVariable.set(item.name)
+        self.descriptionEntryVariable.set(item.description)
+        self.durabilityEntryVariable.set(item.durability)
+        self.damageEntryVariable.set(item.damage)
+        self.defenseEntryVariable.set(item.defense)
         """
         Make it where the properties are the item's properties
         """
