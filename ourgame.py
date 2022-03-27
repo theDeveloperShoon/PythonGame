@@ -67,6 +67,13 @@ def VerticalMovementHandler(keys):
     return returnModifier
 
 
+def isStatsShowTrue(keys):
+    if keys[pygame.K_e]:
+        return True
+    else:
+        return False
+
+
 # Initializing
 game = GameEngine()
 
@@ -74,7 +81,7 @@ black = 0, 0, 0
 
 testPlayer = Player("Assets/Sprites/TestBox.png")
 
-
+showStats = False
 # Game Loop
 while True:
     for event in pygame.event.get():
@@ -86,6 +93,7 @@ while True:
 
         horizontalAxis = HorizontalMovementHandler(keys)
         verticalAxis = VerticalMovementHandler(keys)
+        showStats = isStatsShowTrue(keys)
 
         testPlayer.x_velocity = horizontalAxis * 0.15
         testPlayer.y_velocity = verticalAxis * 0.15
@@ -96,5 +104,10 @@ while True:
 
     # Adds the player onto screen
     game.screen.blit(testPlayer.sprite, testPlayer.get_coordinate())
+
+    if(showStats):
+        font = pygame.font.Font(None, 28)
+        text = font.render(str(testPlayer.health), True, (255, 255, 255))
+        game.screen.blit(text, text.get_rect())
 
     pygame.display.flip()  # Updates the full display Surface to the screen
