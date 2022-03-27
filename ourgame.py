@@ -45,7 +45,7 @@ def VerticalMovementHandler(keys):
     return returnModifier
 
 
-def isStatsShowTrue(keys):
+def isShowingStats(keys):
     if keys[pygame.K_e]:
         return True
     else:
