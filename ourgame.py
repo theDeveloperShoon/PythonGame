@@ -77,8 +77,8 @@ while True:
         verticalAxis = VerticalMovementHandler(keys)
         showStats = isStatsShowTrue(keys)
 
-        testPlayer.x_velocity = horizontalAxis * 0.15
-        testPlayer.y_velocity = verticalAxis * 0.15
+        testPlayer.x_velocity = horizontalAxis * 4
+        testPlayer.y_velocity = verticalAxis * 4
 
     testPlayer.update_location()
 
