@@ -89,8 +89,9 @@ while True:
 
     if(showStats):
         font = pygame.font.Font(None, 28)
-        text = font.render(str(testPlayer.health), True, (255, 255, 255))
-        game.screen.blit(text, text.get_rect())
+        healthText = font.render(
+            'Health - ' + str(testPlayer.health), True, (255, 255, 255))
+        game.screen.blit(healthText, healthText.get_rect())
         fpsText = font.render(
             'FPS - ' + str(math.floor(clock.get_fps())), True, (255, 255, 255))
         game.screen.blit(fpsText, (0, 100))
