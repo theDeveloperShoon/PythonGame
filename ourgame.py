@@ -10,10 +10,8 @@ from Game.GameWindow import GameWindow
 class GameEngine:
     def __init__(self):
         pygame.init()
-        self.screen_width = 640
-        self.screen_height = 640
-        self.resolution = self.screen_width, self.screen_height
-        self.screen = pygame.display.set_mode(self.resolution)
+        self.gameWindow = GameWindow()
+        self.screen = self.gameWindow.create_window()
         pygame.display.set_caption("Sean's Simple Stat Gain Game")
         pygame.display.set_icon(pygame.image.load("Assets/SSSGG_icon.png"))
 
