@@ -3,6 +3,7 @@ import os
 import io
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox
 from classes.item import Item
 from classes.itemlist import ItemList
 
@@ -33,7 +34,7 @@ class ItemMaker():
         self.menuDebug = Menu(self.menuBar)
         self.menuBar.add_cascade(menu=self.menuFile, label="File")
         self.menuBar.add_cascade(menu=self.menuEdit, label='Edit')
-        self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
+        # self.menuBar.add_cascade(menu=self.menuDebug, label="Debug")
 
         self.menuFile.add_command(label='Open', command=self.openFile)
         self.menuFile.add_command(label='Save', command=self.saveFile)
@@ -96,10 +97,28 @@ class ItemMaker():
             self.frame, textvariable=self.durabilityEntryVariable)
         self.durabilityEntry.grid(column=1, row=2)
 
+        # Damage Entry
+        self.damageLabel = Label(self.frame, text='Damage')
+        self.damageLabel.grid(column=0, row=3)
+
+        self.damageEntryVariable = StringVar()
+        self.damageEntry = Entry(
+            self.frame, textvariable=self.damageEntryVariable)
+        self.damageEntry.grid(column=1, row=3)
+
+        # Defense Entry
+        self.defenseLabel = Label(self.frame, text='Defense')
+        self.defenseLabel.grid(column=0, row=4)
+
+        self.defenseEntryVariable = StringVar()
+        self.defenseEntry = Entry(
+            self.frame, textvariable=self.defenseEntryVariable)
+        self.defenseEntry.grid(column=1, row=4)
+
         # Save Button
         self.saveButton = Button(
             self.frame, text='Save', command=self.saveItem)
-        self.saveButton.grid(column=0, row=3, columnspan=2)
+        self.saveButton.grid(column=0, row=5, columnspan=2)
 
         # Binds the itemBox to open the item
         self.itemBox.bind('<Double-1>', self.openItem)
@@ -111,7 +130,13 @@ class ItemMaker():
     # Changes the currentItem to the selected item
     def openItem(self, event):
         self.currentItem = self.itemBox.curselection()[0]
+        item = self.itemList.items[self.currentItem]
 
+        self.nameEntryVariable.set(item.name)
+        self.descriptionEntryVariable.set(item.description)
+        self.durabilityEntryVariable.set(item.durability)
+        self.damageEntryVariable.set(item.damage)
+        self.defenseEntryVariable.set(item.defense)
         """
         Make it where the properties are the item's properties
         """
@@ -119,8 +144,56 @@ class ItemMaker():
     # Saves the entered properties into the item
     def saveItem(self):
         itemID = self.currentItem
+
+        name = self.nameEntryVariable.get()
+
+        # Turns a blank name into "NewItem"
+        if (name.strip() == ""):
+            name = "NewItem"
+
+        # Tries converting durability to a number
+        try:
+            durabilityEntered = self.durabilityEntryVariable.get()
+            if(durabilityEntered.strip() == ""):
+                durability = 0
+            else:
+                durability = float(durabilityEntered)
+
+            self.itemList.items[itemID].durability = durability
+        except ValueError:
+            messagebox.showinfo(
+                message='Durability was unable to be converted to a number')
+
+        # Tries to convert damage to a number
+        try:
+            damageEntered = self.damageEntryVariable.get()
+
+            if(damageEntered.strip() == ""):
+                damage = 0
+            else:
+                damage = float(damageEntered)
+
+            self.itemList.items[itemID].damage = damage
+        except ValueError:
+            messagebox.showinfo(
+                message='Damage was unable to be convered to a number')
+
+        # Tries to convert defense to a number
+        try:
+            defenseEntered = self.defenseEntryVariable.get()
+
+            if(defenseEntered.strip() == ""):
+                defense = 0
+            else:
+                defense = float(defenseEntered)
+
+            self.itemList.items[itemID].defense = defense
+        except ValueError:
+            messagebox.showinfo(
+                message='Defense was unable to be converted to a number')
+
         self.itemList.items[itemID]
-        self.itemList.items[itemID].name = self.nameEntryVariable.get()
+        self.itemList.items[itemID].name = name
         self.itemList.items[itemID].description = self.descriptionEntry.get()
 
         self.updateListbox()
@@ -137,7 +210,7 @@ class ItemMaker():
         for item in self.itemList.getItems():
             self.nameList.append(item.name)
 
-        print(self.nameList)
+        # print(self.nameList)
 
         self.stringVar.set(self.nameList)
 
