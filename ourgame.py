@@ -74,6 +74,13 @@ LayerList.append(effectsLayer)
 LayerList.append(guiLayer)
 # Game Loop
 while True:
+    game.screen.fill(black)  # Fills the background with black
+
+    # Clear Layers
+    for layer in LayerList:
+        layer.fill(black)
+        layer.set_colorkey(black)
+
     # pygame.time.Clock().tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
