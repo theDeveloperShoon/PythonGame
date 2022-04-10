@@ -110,10 +110,10 @@ while True:
         font = pygame.font.Font(None, 28)
         healthText = font.render(
             'Health - ' + str(testPlayer.health), True, (255, 255, 255))
-        game.screen.blit(healthText, healthText.get_rect())
+        guiLayer.blit(healthText, healthText.get_rect())
         fpsText = font.render(
             'FPS - ' + str(math.floor(clock.get_fps())), True, (255, 255, 255))
-        game.screen.blit(fpsText, (0, 100))
+        guiLayer.blit(fpsText, (0, 100))
 
     combinedLayer.blit(instanceLayer, instanceLayer.get_rect())
     combinedLayer.blit(effectsLayer, effectsLayer.get_rect())
