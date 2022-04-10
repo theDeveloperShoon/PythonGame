@@ -17,6 +17,11 @@ class GameEngine:
         pygame.display.set_icon(pygame.image.load("Assets/SSSGG_icon.png"))
 
 
+class GameManager:
+    def __init__(self):
+        self.debugShow = False
+
+
 class Player(Entity):
     def __init__(self, *args):
         super().__init__(*args)
@@ -54,6 +59,7 @@ def isShowingStats(keys):
 
 # Initializing
 game = GameEngine()
+gameManager = GameManager()
 
 black = 0, 0, 0
 
@@ -87,7 +93,7 @@ while True:
     # Adds the player onto screen
     game.screen.blit(testPlayer.sprite, testPlayer.get_coordinate())
 
-    if(showStats):
+    if(gameManager.debugShow):
         font = pygame.font.Font(None, 28)
         healthText = font.render(
             'Health - ' + str(testPlayer.health), True, (255, 255, 255))
