@@ -11,6 +11,7 @@ class GameEngine:
     def __init__(self):
         pygame.init()
         self.gameWindow = GameWindow()
+        self.resolution = self.gameWindow.resolution
         self.screen = self.gameWindow.create_window()
         pygame.display.set_caption("Sean's Simple Stat Gain Game")
         pygame.display.set_icon(pygame.image.load("Assets/SSSGG_icon.png"))
