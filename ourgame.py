@@ -87,6 +87,10 @@ while True:
             pygame.quit()
             sys.exit()
 
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_t:
+                gameManager.debugShow = not gameManager.debugShow
+
         keys = pygame.key.get_pressed()
 
         horizontalAxis = HorizontalMovementHandler(keys)
