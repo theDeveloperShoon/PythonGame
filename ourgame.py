@@ -60,6 +60,18 @@ testPlayer = Player("Assets/Sprites/TestBox.png")
 
 clock = pygame.time.Clock()
 
+# Layer Hiarchy
+LayerList = []
+
+combinedLayer = pygame.Surface((game.resolution))
+instanceLayer = pygame.Surface((game.resolution))
+effectsLayer = pygame.Surface((game.resolution))
+guiLayer = pygame.Surface((game.resolution))
+
+LayerList.append(combinedLayer)
+LayerList.append(instanceLayer)
+LayerList.append(effectsLayer)
+LayerList.append(guiLayer)
 # Game Loop
 while True:
     # pygame.time.Clock().tick(60)
