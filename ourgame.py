@@ -104,7 +104,7 @@ while True:
     game.screen.fill(black)  # Fills the background with black
 
     # Adds the player onto screen
-    game.screen.blit(testPlayer.sprite, testPlayer.get_coordinate())
+    instanceLayer.blit(testPlayer.sprite, testPlayer.get_coordinate())
 
     if(gameManager.debugShow):
         font = pygame.font.Font(None, 28)
