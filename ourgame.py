@@ -50,13 +50,6 @@ def VerticalMovementHandler(keys):
     return returnModifier
 
 
-def isShowingStats(keys):
-    if keys[pygame.K_e]:
-        return True
-    else:
-        return False
-
-
 # Initializing
 game = GameEngine()
 gameManager = GameManager()
@@ -64,8 +57,6 @@ gameManager = GameManager()
 black = 0, 0, 0
 
 testPlayer = Player("Assets/Sprites/TestBox.png")
-
-showStats = False
 
 clock = pygame.time.Clock()
 
@@ -81,7 +72,6 @@ while True:
 
         horizontalAxis = HorizontalMovementHandler(keys)
         verticalAxis = VerticalMovementHandler(keys)
-        showStats = isShowingStats(keys)
 
         testPlayer.x_velocity = horizontalAxis * 4
         testPlayer.y_velocity = verticalAxis * 4
