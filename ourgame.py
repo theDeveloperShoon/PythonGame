@@ -101,8 +101,6 @@ while True:
 
     testPlayer.update_location()
 
-    game.screen.fill(black)  # Fills the background with black
-
     # Adds the player onto screen
     instanceLayer.blit(testPlayer.sprite, testPlayer.get_coordinate())
 
